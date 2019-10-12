@@ -136,7 +136,7 @@ if __name__ == '__main__':
               runningTotal += rate[9];               ## add the latest IBI to runningTotal
               runningTotal /= 10;                    ## average the last 10 IBI values 
               SPM = (60000/runningTotal)*2;            ## how many beats can fit into a minute? that's SPM!
-              print 'SPM: {}, T{}, P{}'.format(SPM, T, P)
+              # print 'SPM: {}, T{}, P{}'.format(SPM, T, P)
               try:
                   ## get time data
                   t = datetime.datetime.now()
@@ -156,17 +156,6 @@ if __name__ == '__main__':
                       s += 1
                   else:
                       s += 1
-                  #if SPM != "" :
-                      # rd for ksql join key
-                      #payload = {"records": [{"value": {"device_id": id, "timestamp": t, "SPM": str(SPM)}}]}
-                      # send data to kafka
-                      #r = requests.post(heart, data=json.dumps(payload), headers=headers)
-                      # if link error
-                      #if r.status_code != 200:
-                      #    print "Status Code(SPM): " + str(r.status_code)
-                      #    print r.text
-                      #else:
-                          #print "SPM updated"
 
               except Exception as ex:
                   print ex
@@ -194,7 +183,7 @@ if __name__ == '__main__':
     ##write
     # df.to_csv(' SMP_' + id + '_' + str(count) + '.csv',
               # encoding="utf-8", mode='a', index=False)
-    print count, 'saved'
+    # print count, 'saved'
     
     count += 1
     s = 1
